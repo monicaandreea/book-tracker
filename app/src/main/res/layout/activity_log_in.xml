@@ -10,7 +10,7 @@
         android:id="@+id/titleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_700"
         android:text="Book tracker"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="130dp"
