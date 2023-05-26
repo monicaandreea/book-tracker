@@ -1,9 +1,14 @@
 package com.example.myapplicationlaborator2
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplicationlaborator2.databinding.FragmentAddBookBinding
@@ -16,6 +21,8 @@ class AddBookFragment : Fragment() {
     lateinit var binding: FragmentAddBookBinding
 
     private lateinit var user: FirebaseAuth
+
+    private var CHANNEL_ID = "channel"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +48,9 @@ class AddBookFragment : Fragment() {
                                 account = account)
                 )
             }
+
             requireActivity().supportFragmentManager.popBackStack()
         }
     }
+
 }

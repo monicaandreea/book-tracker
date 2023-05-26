@@ -1,14 +1,15 @@
 package com.example.myapplicationlaborator2
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplicationlaborator2.databinding.FragmentBooksBinding
 import com.example.myapplicationlaborator2.db.BookModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
+import android.widget.SearchView
 
 const val BOOK_ID = "book_id"
 
@@ -20,6 +21,8 @@ class BooksFragment : Fragment() {
 
     private lateinit var user: FirebaseAuth
 
+    private lateinit var searchView: SearchView
+
     val repository: BookRepository by lazy {
         BookRepository(requireContext())
     }
@@ -30,8 +33,31 @@ class BooksFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBooksBinding.inflate(inflater, container, false)
+
+        searchView = binding.search
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null && query.isNotEmpty()) {
+
+                    filter(query)
+                }
+                searchView.clearFocus()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                searchView.isSubmitButtonEnabled = newText.isNotEmpty()
+                return false
+            }
+
+        })
+
+
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,33 +77,6 @@ class BooksFragment : Fragment() {
 
         binding.recyclerView.adapter = adapter
 
-       /* binding.floatingAdd.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.fragment_container, AddBookFragment::class.java, null)
-                .addToBackStack(null)
-                .commit()
-        } */
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.search_menu, menu)
-
-        val searchItem = menu.findItem(R.id.search)
-
-        val searchView = searchItem.actionView as SearchView
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                filter(newText)
-                return false
-            }
-        })
-        return super.onCreateOptionsMenu(menu, inflater)
     }
 
     fun filter(text: String) {
@@ -100,13 +99,3 @@ class BooksFragment : Fragment() {
         }
     }
 }
-
-/*  <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />*/

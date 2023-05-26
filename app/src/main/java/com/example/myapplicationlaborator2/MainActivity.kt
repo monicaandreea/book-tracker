@@ -30,32 +30,6 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         setupWithNavController(bottomNavigationView, navController)
-
-     /*  val KEY_SPLASH = "slpash"
-
-        val sharedPreferences: SharedPreferences = getSharedPreferences("Preferences", Context.MODE_PRIVATE)
-
-        if(!sharedPreferences.getBoolean(KEY_SPLASH, false)){
-            supportFragmentManager.beginTransaction()
-                .add(R.id.mainContainer, SplashFragment::class.java, null)
-                .commit()
-            sharedPreferences.edit().putBoolean(KEY_SPLASH, true).apply()
-        } else {
-            supportFragmentManager.beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.mainContainer, BooksFragment::class.java, null)
-                .commit()
-        }*/
     }
 
 }
-
-
-/*        <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/mainContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost = "true"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/nav_graph"
-        tools:ignore="MissingConstraints" />*/

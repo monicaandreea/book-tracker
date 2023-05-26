@@ -20,7 +20,7 @@ interface BookDao {
     @Update
     suspend fun updateBook(book : BookModel)
 
-    @Query("SELECT * FROM book_items where account LIKE :account AND (title LIKE :text OR author LIKE :text)")
+    @Query("SELECT * FROM book_items where account LIKE :account AND (title LIKE  '%' || :text  || '%' OR author LIKE '%' || :text || '%')")
     suspend fun searchAllBooks(account: String, text: String): List<BookModel>
 
 }
