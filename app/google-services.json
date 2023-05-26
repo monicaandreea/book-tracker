@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "346626051860",
+    "project_id": "book-tracker-32df8",
+    "storage_bucket": "book-tracker-32df8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346626051860:android:2d139020c71a3ccd863c01",
+        "android_client_info": {
+          "package_name": "com.example.myapplicationlaborator2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346626051860-64q0stlg72h6flij18a5d7fr6rhj75et.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi_93F2s-kWJuTs-t0ASId9etd0AGfpi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346626051860-64q0stlg72h6flij18a5d7fr6rhj75et.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

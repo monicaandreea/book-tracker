@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/title_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Original Title"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/author_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Original Author"/>
+
+    <EditText
+        android:id="@+id/pages_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Original Number Of Pages"/>
+
+    <Button
+        android:id="@+id/button_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit"/>
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete" />
+
+</LinearLayout>

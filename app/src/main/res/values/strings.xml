@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Book tracker</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="channel_name">Chanel name</string>
+    <string name="splash">Welcome to the book tracking app!</string>
+</resources>
